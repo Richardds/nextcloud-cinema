@@ -1,3 +1,41 @@
-#hello {
-	color: red;
+table.grid {
+	width: 100%;
+}
+
+table.grid th {
+	height: 2em;
+	color: #999;
+}
+
+table.grid th, table.grid td {
+	border-bottom: 1px solid #eee;
+	padding: 0 .5em;
+	padding-left: .8em;
+	text-align: left;
+	font-weight: normal;
+}
+
+td.name, td.password {
+	padding-left: .8em;
+}
+
+td.password > img, td.displayName > img, td.quota > img {
+	visibility: hidden;
+}
+
+td.password, td.quota, td.displayName {
+	width: 12em;
+	cursor: pointer;
+}
+
+td.password > span, td.quota > span {
+	margin-right: 1.2em;
+	color: #C7C7C7;
+}
+
+span.titleAlt {
+	display: block;
+	color: #a0a0a0;
+    font-size: 12px;
+    margin-top: -5px;
 }
