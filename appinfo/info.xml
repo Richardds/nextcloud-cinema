@@ -17,7 +17,7 @@
     <navigations>
         <navigation>
             <name>Cinema</name>
-            <route>cinema.movies.index</route>
+            <route>cinema.page.index</route>
         </navigation>
     </navigations>
 </info>

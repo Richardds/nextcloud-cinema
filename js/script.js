@@ -7,7 +7,7 @@
     String.prototype.empty = function () {
         return !this.trim();
     };
-    
+
     function formatMovieDuration(duration) {
         var hour = 3600;
 
@@ -35,16 +35,24 @@
 
         $.get(baseUrl + '/movies').done(function (response) {
             $.each(response, function (i, movie) {
-                movies_table.append(
-                    '<tr>' +
-                    '<td>' + movie['title'] + (!movie['title_alt'].empty() ? '<span class="titleAlt">' + movie['title_alt'] + '</span>' : '') + '</td>' +
-                    '<td>' + formatMovieDuration(movie['duration']) + '</td>' +
-                    '<td>' + movie['release_year'] + '</td>' +
-                    '<td>' + movie['width'] + ' x ' + movie['height'] + '</td>' +
-                    '<td>' + formatMovieSize(movie['size']) + '</td>' +
-                    '<td><input type="button" value="Play"' + (!movie['playable'] ? ' disabled' : '') + '></td>' +
-                    '</tr>'
+                var row = $('<tr>');
+                row.append($('<td>').text(
+                    movie['title']).append(
+                    !movie['title_alt'].empty()
+                        ? $('<span>').addClass('titleAlt').text(movie['title_alt'])
+                        : ''
+                ));
+                row.append($('<td>').text(formatMovieDuration(movie['duration'])));
+                row.append($('<td>').text(movie['release_year']));
+                row.append($('<td>').text(movie['width'] + ' x ' + movie['height']));
+                row.append($('<td>').text(formatMovieSize(movie['size'])));
+                row.append($('<td>').append(
+                    $('<input>')
+                        .attr('type', 'button')
+                        .val('Play')
+                        .attr('disabled', !movie['playable']))
                 );
+                movies_table.append(row);
             });
         }).fail(function (response, code) {
             console.error('Failed to load movie list!');
