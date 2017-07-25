@@ -10,6 +10,7 @@
 return [
     'routes' => [
 	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-	   ['name' => 'movies#get', 'url' => '/movies', 'verb' => 'GET'],
+
+	   ['name' => 'movies#all', 'url' => '/movies', 'verb' => 'GET'],
     ]
 ];

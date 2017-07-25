@@ -4,18 +4,15 @@
         return Math.round(this * x) / x;
     };
 
-    String.prototype.empty = function () {
-        return !this.trim();
-    };
-
     function formatMovieDuration(duration) {
-        var hour = 3600;
+        var minute = 60;
+        var hour = minute * 60;
 
         if (duration < hour) {
-            return (duration / 60) + ' minutes';
+            return Math.floor(duration / minute) + ' minutes';
         }
 
-        return Math.floor(duration / hour) + ' hr. ' + Math.floor(duration % hour / 60) + ' min.';
+        return Math.floor(duration / hour) + ' hr. ' + Math.floor(duration % hour / minute) + ' min.';
     }
 
     function formatMovieSize(size) {
@@ -38,20 +35,14 @@
                 var row = $('<tr>');
                 row.append($('<td>').text(
                     movie['title']).append(
-                    !movie['title_alt'].empty()
-                        ? $('<span>').addClass('titleAlt').text(movie['title_alt'])
+                    movie['title_alt'] !== null
+                        ? $('<span>').addClass('subtext').text(movie['title_alt'])
                         : ''
                 ));
                 row.append($('<td>').text(formatMovieDuration(movie['duration'])));
                 row.append($('<td>').text(movie['release_year']));
                 row.append($('<td>').text(movie['width'] + ' x ' + movie['height']));
-                row.append($('<td>').text(formatMovieSize(movie['size'])));
-                row.append($('<td>').append(
-                    $('<input>')
-                        .attr('type', 'button')
-                        .val('Play')
-                        .attr('disabled', !movie['playable']))
-                );
+                row.append($('<td>').text(formatMovieSize(movie['filesize'])));
                 movies_table.append(row);
             });
         }).fail(function (response, code) {

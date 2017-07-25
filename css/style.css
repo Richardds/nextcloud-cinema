@@ -33,7 +33,7 @@ td.password > span, td.quota > span {
 	color: #C7C7C7;
 }
 
-span.titleAlt {
+span.subtext {
 	display: block;
 	color: #a0a0a0;
     font-size: 12px;

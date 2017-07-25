@@ -6,7 +6,6 @@
         <td>Release Year</td>
         <td>Resolution</td>
         <td>Stream size</td>
-        <td></td>
     </tr>
     </thead>
     <tbody></tbody>

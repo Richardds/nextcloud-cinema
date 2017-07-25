@@ -15,4 +15,3 @@ style('cinema', 'style');
 		</div>
 	</div>
 </div>
-
