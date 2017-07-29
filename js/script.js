@@ -33,9 +33,8 @@
         $.get(baseUrl + '/movies').done(function (response) {
             $.each(response, function (i, movie) {
                 var row = $('<tr>');
-                row.append($('<td>').text(
-                    movie['title']).append(
-                    movie['title_alt'] !== null
+                row.append($('<td>').text(movie['title']).append(
+                		movie['title_alt'] !== null
                         ? $('<span>').addClass('subtext').text(movie['title_alt'])
                         : ''
                 ));

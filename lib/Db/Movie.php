@@ -43,6 +43,11 @@ class Movie extends Entity implements JsonSerializable
     protected $height;
 
     /**
+     * @var int
+     */
+    protected $framerate;
+
+    /**
      * @var integer
      */
     protected $filesize;
@@ -66,6 +71,7 @@ class Movie extends Entity implements JsonSerializable
             'duration' => $this->duration,
             'width' => $this->width,
             'height' => $this->height,
+            'framerate' => $this->framerate,
             'filesize' => $this->filesize,
             'filename' => $this->filename
         ];
